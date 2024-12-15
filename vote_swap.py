@@ -8,7 +8,7 @@ st.set_page_config(layout="wide")
 # ---------------------------
 # Load Data
 # ---------------------------
-house_results = pd.read_csv('./house_results_2024.csv')
+house_results = pd.read_csv('./house_results_2024_1.csv')
 map_gdf = gpd.read_file("map_gdf_shapefile.shp")
 
 house_results['GEOID'] = house_results['GEOID'].astype(str)
@@ -139,9 +139,11 @@ if redistribution_clicked:
     # Now show both maps in separate tabs
     tab1, tab2 = st.tabs(["Original Map", "Redistributed Map"])
     with tab1:
-        st.plotly_chart(initial_fig, use_container_width=True)
+        st.plotly_chart(initial_fig, use_container_width=True, key="initial_plot")
+
     with tab2:
-        st.plotly_chart(updated_fig, use_container_width=True)
+        st.plotly_chart(updated_fig, use_container_width=True, key="updated_plot")
+
 
 else:
     # Before redistribution, just show the original map

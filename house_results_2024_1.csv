@@ -1,4 +1,4 @@
-candidate_name,vote_percentage,votes,state,district,party,state_abbreviation,year,id,GEOID
+candidate,percentage,votes,state,district,party,state_abbreviation,year,id,GEOID
 Barry Moore,78.4,258619,Alabama,01,Republican,AL,2024,AL01,0101
 Tom Holmes,21.5,70929,Alabama,01,Democrat,AL,2024,AL01,0101
 Other/Write-in votes,0.1,306,Alabama,01,Other,AL,2024,AL01,0101
