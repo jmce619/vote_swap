@@ -84,8 +84,6 @@ def create_figure(gdf):
 # Streamlit App
 # ---------------------------
 
-st.title("US House Election Vote Redistribution")
-
 all_parties = sorted(house_results['party'].unique().tolist())
 
 from_parties = st.multiselect("From Party(ies)", options=all_parties, default=[])
