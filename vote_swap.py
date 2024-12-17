@@ -8,7 +8,7 @@ st.set_page_config(layout="wide")
 # ---------------------------
 # Load Data
 # ---------------------------
-house_results = pd.read_csv('./house_results_2024.csv')
+house_results = pd.read_csv('./house_results_2024_1.csv')
 map_gdf = gpd.read_file("map_gdf_shapefile.shp")
 
 house_results['GEOID'] = house_results['GEOID'].astype(str)
@@ -68,7 +68,8 @@ def create_figure(gdf):
                     f"Party: {row['winner_party']}<br>"
                     f"Votes: {row['winner_votes']}<br>"
                     f"Percentage: {row['winner_percentage']:.1f}%"
-                )
+                ),
+                showlegend=False
             ))
     fig.update_layout(
         width=1000,
@@ -76,7 +77,8 @@ def create_figure(gdf):
         mapbox_style="white-bg",
         mapbox_zoom=3,
         mapbox_center={"lat": 37.0902, "lon": -95.7129},
-        margin={"r":0,"t":0,"l":0,"b":0}
+        margin={"r":0,"t":0,"l":0,"b":0},
+        showlegend=False
     )
     return fig
 
@@ -84,7 +86,6 @@ def create_figure(gdf):
 # Streamlit App
 # ---------------------------
 
-st.title("US House Election Vote Redistribution")
 
 all_parties = sorted(house_results['party'].unique().tolist())
 
